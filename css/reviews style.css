@@ -1,0 +1,251 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+    background-color: #ececec;
+}
+header{
+    background-color: #385170;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 9999;
+    transition: all 300 ms ease-in-out;
+}
+body{
+    background-color: #ececec;
+}
+li {
+    list-style:none;
+}
+
+a{
+    color:#ececec;
+    text-decoration:none;
+}
+
+ 
+.navbar{
+    min-height:50px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0px 25px 0px 25px;
+    font-family:"Fraunces", serif;
+    font-size: 15px;
+    background-color: #385170;
+}
+.navbar img{
+    width:100%;
+    height: 100px;
+}
+.logo{
+    background-color: #385170;
+}
+
+.nav-menu{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    background-color: #385170;
+}
+.nav-menu a{
+    transition: 0.7s ease;
+    background-color: #385170;
+}
+.nav-menu a:hover{
+    color: #60a0b0;
+    
+}
+ 
+
+.hamburger{
+    display:none;
+    cursor: pointer;
+    background-color: #385170;
+}
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #ececec;
+}
+
+/*Actual Review Content*/
+.content{
+    padding-top: 120px;
+    background-color: #ececec;
+}
+
+h1{
+    text-align: center;
+    font-family:"Fraunces", serif;  
+    color: white;
+    font-size: 50px;
+    background-color:#60a0b0;
+    border: none;
+    border-radius: 50px;
+    outline:none;
+    margin-left: 25px;
+    margin-right:25px;
+    padding: 4px;
+}
+
+
+
+.Reviews{
+    margin: 20px 50px 20px 50px;
+    background-color: #ececec;
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-template-rows: repeat(4,1fr);
+    column-gap: 50px;
+    row-gap: 25px;
+    align-items: center;
+}
+
+.review {  
+    border-radius: 50px;
+    border: 5px solid #385170;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    align-self: normal; 
+    background-color: white;
+    box-shadow: -5px 1px 9px #60a0b0;
+}
+
+.reviewcontent{
+    font-family:"Fraunces", serif;  
+    color:#385170;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.4;
+    padding: 10px;
+    flex-grow: 1;
+    background-color: white;
+}
+
+.signoff {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    align-items: center;
+    background-color: white;
+    gap: 10px;
+    
+}
+.signoff p{
+    background-color: white;
+    font-family:"Fraunces", serif;  
+    color: #385170;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.photo{
+    border-radius: 50%;
+    border: 5px solid #60a0b0;
+    box-shadow: -2px 2px 6px #385170;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    object-fit: cover;
+}
+.photo img{
+    max-width: 100%;
+    max-height: 100%;
+}
+    
+
+
+/* Width resizing nav bar*/
+@media(max-width: 768px){
+    .hamburger{
+       display:block;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+        position:fixed;
+        left: -100%;
+        top: 90px;
+        font-size: 20px;
+        padding-bottom: 10px;
+        gap:10;
+        flex-direction: column;
+        background-color: #385170;
+        width:100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+    .nav-item{
+        margin: 100px 0;
+    }
+    .nav-menu.active{
+        left:0;
+    }
+    .Reviews{
+        row-gap: 30px;        
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);            
+    }
+    
+}
+
+
+@media(max-width: 514px){
+    h1{
+        font-size: 40px;
+        background-color:#60a0b0;
+        margin-left: 50px;
+        margin-right:50px;
+    }
+    .Reviews{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+}
+@media(max-width: 360px){
+    .reviewcontent{
+        font-size: 10px;
+        padding: 1px;
+    }
+    .Reviews{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .review{
+        padding: 15px;
+    }
+    .signoff p{
+        font-size: 20px;
+    }
+}
+ 
+ /*Sticky header & Scroll features*/
+.scroll-down header{
+    transform: translate3d(0,-100%,0);
+    }
+.scroll-up header{
+    filter: drop-shadow(0 -10px 20px rgb(23, 23, 23));
+    }
